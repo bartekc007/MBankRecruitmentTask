@@ -1,0 +1,18 @@
+version: '3.4'
+
+services:
+  f1.api:
+    image: ${DOCKER_REGISTRY-}f1api
+    build:
+      context: .
+      dockerfile: Services/F1/F1.API/Dockerfile
+
+  f1db.postgres:
+    image: postgres
+
+  pgadmin:
+    image: dpage/pgadmin4
+
+volumes:
+  postgres_data:
+  pgadmin_data:

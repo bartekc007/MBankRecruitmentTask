@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using EventBus.Messages.Events;
+using MassTransit;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,11 +11,19 @@ namespace F1.Infrastructure.Persistence
 {
     public class F1ContextSeed
     {
-        public static void SeedAsync(F1Context context, ILogger<F1ContextSeed> logger)
+        private readonly IPublishEndpoint eventBus;
+
+        public F1ContextSeed(IPublishEndpoint eventBus)
         {
-            if (!context.Drivers.Any())
+            this.eventBus = eventBus;
+        }
+
+        public async Task SeedAsync(F1Context context, ILogger<F1ContextSeed> logger)
+        {
+            if (!context.Drivers.Any() && !context.Construcors.Any() && !context.Races.Any() && !context.Circuits.Any())
             {
-                // RabbitMq Ask for Seed Data another microservice
+                GenerateDataEvent generateDataEvent = new GenerateDataEvent();
+                await eventBus.Publish(generateDataEvent);
             }
         }
     }

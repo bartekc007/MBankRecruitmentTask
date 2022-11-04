@@ -7,6 +7,7 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
+COPY ["RabbitMQBuss.Messages/EventBus.Messages/EventBus.Messages.csproj", "RabbitMQBuss.Messages/EventBus.Messages/"]
 COPY ["Services/F1/F1.API/F1.API.csproj", "Services/F1/F1.API/"]
 COPY ["Services/F1/F1.Application/F1.Application.csproj", "Services/F1/F1.Application/"]
 COPY ["Services/F1/F1.Domain/F1.Domain.csproj", "Services/F1/F1.Domain/"]

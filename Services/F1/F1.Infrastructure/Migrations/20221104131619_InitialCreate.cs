@@ -15,12 +15,12 @@ namespace F1.Infrastructure.Migrations
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    Ref = table.Column<string>(type: "text", nullable: false),
-                    Name = table.Column<string>(type: "text", nullable: false),
-                    Location = table.Column<string>(type: "text", nullable: false),
-                    Lat = table.Column<string>(type: "text", nullable: false),
-                    Ing = table.Column<string>(type: "text", nullable: false),
-                    Alt = table.Column<string>(type: "text", nullable: false)
+                    Ref = table.Column<string>(type: "text", nullable: true),
+                    Name = table.Column<string>(type: "text", nullable: true),
+                    Location = table.Column<string>(type: "text", nullable: true),
+                    Lat = table.Column<string>(type: "text", nullable: true),
+                    Ing = table.Column<string>(type: "text", nullable: true),
+                    Alt = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -33,9 +33,9 @@ namespace F1.Infrastructure.Migrations
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    Ref = table.Column<string>(type: "text", nullable: false),
-                    Name = table.Column<string>(type: "text", nullable: false),
-                    Nationality = table.Column<string>(type: "text", nullable: false)
+                    Ref = table.Column<string>(type: "text", nullable: true),
+                    Name = table.Column<string>(type: "text", nullable: true),
+                    Nationality = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -48,13 +48,13 @@ namespace F1.Infrastructure.Migrations
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    Ref = table.Column<string>(type: "text", nullable: false),
-                    Number = table.Column<string>(type: "text", nullable: false),
-                    code = table.Column<string>(type: "text", nullable: false),
-                    forename = table.Column<string>(type: "text", nullable: false),
-                    surename = table.Column<string>(type: "text", nullable: false),
-                    dob = table.Column<string>(type: "text", nullable: false),
-                    natonality = table.Column<string>(type: "text", nullable: false)
+                    Ref = table.Column<string>(type: "text", nullable: true),
+                    Number = table.Column<string>(type: "text", nullable: true),
+                    code = table.Column<string>(type: "text", nullable: true),
+                    forename = table.Column<string>(type: "text", nullable: true),
+                    surename = table.Column<string>(type: "text", nullable: true),
+                    dob = table.Column<string>(type: "text", nullable: true),
+                    natonality = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -65,12 +65,14 @@ namespace F1.Infrastructure.Migrations
                 name: "Races",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "text", nullable: false),
-                    Year = table.Column<string>(type: "text", nullable: false),
-                    Round = table.Column<string>(type: "text", nullable: false),
-                    Name = table.Column<string>(type: "text", nullable: false),
-                    Date = table.Column<string>(type: "text", nullable: false),
-                    Time = table.Column<string>(type: "text", nullable: false)
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Year = table.Column<string>(type: "text", nullable: true),
+                    Round = table.Column<string>(type: "text", nullable: true),
+                    CircuitId = table.Column<int>(type: "integer", nullable: true),
+                    Name = table.Column<string>(type: "text", nullable: true),
+                    Date = table.Column<string>(type: "text", nullable: true),
+                    Time = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {

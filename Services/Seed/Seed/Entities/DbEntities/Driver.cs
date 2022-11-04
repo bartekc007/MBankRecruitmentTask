@@ -1,11 +1,4 @@
-﻿using F1.Domain.Common;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace F1.Domain.Entities
+﻿namespace Seed.Entities.DbEntities
 {
     public class Driver : EntityBase
     {

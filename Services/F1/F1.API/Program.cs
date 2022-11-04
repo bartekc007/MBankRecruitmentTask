@@ -1,5 +1,8 @@
+using F1.API.Extensions;
 using F1.Application;
 using F1.Infrastructure;
+using F1.Infrastructure.Persistence;
+using MassTransit;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +16,12 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
+app.MigrateDatabase<F1Context>((context, services) =>
+{
+    var logger = services.GetRequiredService<ILogger<F1ContextSeed>>();
+    var seedContext = new F1ContextSeed(services.GetRequiredService<IPublishEndpoint>());
+    seedContext.SeedAsync(context,logger);
+});
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

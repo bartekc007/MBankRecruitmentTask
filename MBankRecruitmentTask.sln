@@ -5,15 +5,19 @@ VisualStudioVersion = 17.3.32901.215
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{243E17FE-2901-483D-BEE0-E3239B1C8335}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "F1.API", "Services\F1\F1.API\F1.API.csproj", "{1EE4E228-FC18-4EF3-A7A4-B88BF183EE5B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "F1.API", "Services\F1\F1.API\F1.API.csproj", "{1EE4E228-FC18-4EF3-A7A4-B88BF183EE5B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "F1.Application", "Services\F1\F1.Application\F1.Application.csproj", "{FD64D376-DEBB-40F7-946A-7C4E4F684A69}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "F1.Application", "Services\F1\F1.Application\F1.Application.csproj", "{FD64D376-DEBB-40F7-946A-7C4E4F684A69}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "F1.Domain", "Services\F1\F1.Domain\F1.Domain.csproj", "{3F4C1604-A073-417E-8E5D-24D7856D8BCB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "F1.Domain", "Services\F1\F1.Domain\F1.Domain.csproj", "{3F4C1604-A073-417E-8E5D-24D7856D8BCB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "F1.Infrastructure", "Services\F1\F1.Infrastructure\F1.Infrastructure.csproj", "{D07310F4-0260-4295-8D9F-332BEC1A8875}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "F1.Infrastructure", "Services\F1\F1.Infrastructure\F1.Infrastructure.csproj", "{D07310F4-0260-4295-8D9F-332BEC1A8875}"
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{38FE668A-09B2-4F27-A914-B8CB2F85D85F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Seed", "Services\Seed\Seed\Seed.csproj", "{39E1BA24-8159-4AD7-A65C-7559D1A6AFAC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventBus.Messages", "RabbitMQBuss.Messages\EventBus.Messages\EventBus.Messages.csproj", "{F11C6803-37F7-4672-8FB0-85CA71714835}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +45,14 @@ Global
 		{38FE668A-09B2-4F27-A914-B8CB2F85D85F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{38FE668A-09B2-4F27-A914-B8CB2F85D85F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{38FE668A-09B2-4F27-A914-B8CB2F85D85F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39E1BA24-8159-4AD7-A65C-7559D1A6AFAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39E1BA24-8159-4AD7-A65C-7559D1A6AFAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39E1BA24-8159-4AD7-A65C-7559D1A6AFAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39E1BA24-8159-4AD7-A65C-7559D1A6AFAC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F11C6803-37F7-4672-8FB0-85CA71714835}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F11C6803-37F7-4672-8FB0-85CA71714835}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F11C6803-37F7-4672-8FB0-85CA71714835}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F11C6803-37F7-4672-8FB0-85CA71714835}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,6 +1,20 @@
 # MBank Recruitment Task
-Napotkane problemy i ich rozwiązania:
 
-1. Miałem problem z załadowaniem danych z pliku xml. Miałem gotowe dane w plikach .csv i użyłem internetowego convertera do plików xml. Być może wygenerowane pliki były niepoprawne, koniec końców użyłem plików .csv.
+Problems and solutions:
 
-2.Problem z czytaniem zmiennych w docker.compose.override.yml. Jeżeli odpalone zostały kontenery Postgres,RabbitMq i pgadmin oraz odpalono programy F1.API orad Seed to prawidłowo zostają pobierane dane do bazy danych z plików csv. Natomiast odpalenie całego docker-compose, sprawia że ignorowane są Zmienne connectionstring w pliku docker-compose-override.yml.
+1. I was not able to fully containerized my application.
+
+I've created docker-compose with embeded Docker orchiestrator tool. It contains: 
+services:
+ - f1.api
+ - f1db.postgres
+ - pgadmin
+ - rabbitmq
+ - seed
+ For some reason f1.api container and seed container don't use passed environments like db connectionstring and rabbitMQ connectionString, so after running the 
+  $docker-compose -f .\docker-compose.yml -f .\docker-compose.override.yml up -d  command I turn off the seed and f1.api container and run multiple startup projects containig Seed and F1.API projects.
+  I also run client application with ng serve command, localhost:4200.
+
+2. I've had also problems with reading XML files. Maybe because I've created them with an online converter based on csv files. It is possible that those files were not valid.
+
+

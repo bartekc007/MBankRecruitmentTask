@@ -1,4 +1,5 @@
 ﻿using F1.Application.Contracts.Persistance;
+using F1.Domain.Dto;
 using F1.Domain.Entities;
 using MediatR;
 using System;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace F1.Application.Features.Races.GetRacesListQuery
 {
-    public class GetRacesListQueryHandler : IRequestHandler<GetRacesListQuery, IEnumerable<Race>>
+    public class GetRacesListQueryHandler : IRequestHandler<GetRacesListQuery, RaceCollection>
     {
         private readonly IRacesRepository _racesRepository;
 
@@ -18,9 +19,9 @@ namespace F1.Application.Features.Races.GetRacesListQuery
             _racesRepository = racesRepository;
         }
 
-        async Task<IEnumerable<Race>> IRequestHandler<GetRacesListQuery, IEnumerable<Race>>.Handle(GetRacesListQuery request, CancellationToken cancellationToken)
+        public async Task<RaceCollection> Handle(GetRacesListQuery request, CancellationToken cancellationToken)
         {
-            return await _racesRepository.GetAllAsync();
+            return (RaceCollection) await _racesRepository.GetAllAsync(request.PageNumber, request.PageSize);
         }
     }
 }

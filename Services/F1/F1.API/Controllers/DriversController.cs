@@ -1,5 +1,6 @@
 ﻿using F1.Application.Features.Constructors.GetConstructorsListQuery;
 using F1.Application.Features.Drivers.GetDriversListQuery;
+using F1.Domain.Dto;
 using F1.Domain.Entities;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -21,10 +22,10 @@ namespace F1.API.Controllers
 
         [HttpGet]
         [Route("GetAll")]
-        [ProducesResponseType(typeof(IEnumerable<Driver>), (int)HttpStatusCode.OK)]
-        public async Task<ActionResult<IEnumerable<Driver>>> GetAll()
+        [ProducesResponseType(typeof(DriverCollection), (int)HttpStatusCode.OK)]
+        public async Task<ActionResult<DriverCollection>> GetAll(int pageNumber)
         {
-            var query = new GetDriversListQuery();
+            var query = new GetDriversListQuery(pageNumber);
             var drivers = await _mediator.Send(query);
             return Ok(drivers);
         }

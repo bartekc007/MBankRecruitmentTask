@@ -15,9 +15,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "F1.Infrastructure", "Servic
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{38FE668A-09B2-4F27-A914-B8CB2F85D85F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Seed", "Services\Seed\Seed\Seed.csproj", "{39E1BA24-8159-4AD7-A65C-7559D1A6AFAC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Seed", "Services\Seed\Seed\Seed.csproj", "{39E1BA24-8159-4AD7-A65C-7559D1A6AFAC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventBus.Messages", "RabbitMQBuss.Messages\EventBus.Messages\EventBus.Messages.csproj", "{F11C6803-37F7-4672-8FB0-85CA71714835}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventBus.Messages", "RabbitMQBuss.Messages\EventBus.Messages\EventBus.Messages.csproj", "{F11C6803-37F7-4672-8FB0-85CA71714835}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Client", "Client", "{8E422F6B-233A-4759-9BF5-0657248E29E5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

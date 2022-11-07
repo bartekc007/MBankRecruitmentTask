@@ -1,5 +1,6 @@
 ﻿using F1.Application.Features.Drivers.GetDriversListQuery;
 using F1.Application.Features.Races.GetRacesListQuery;
+using F1.Domain.Dto;
 using F1.Domain.Entities;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -22,10 +23,10 @@ namespace F1.API.Controllers
 
         [HttpGet]
         [Route("GetAll")]
-        [ProducesResponseType(typeof(IEnumerable<Race>), (int)HttpStatusCode.OK)]
-        public async Task<ActionResult<IEnumerable<Race>>> GetAll()
+        [ProducesResponseType(typeof(RaceCollection), (int)HttpStatusCode.OK)]
+        public async Task<ActionResult<RaceCollection>> GetAll(int pageNumber)
         {
-            var query = new GetRacesListQuery();
+            var query = new GetRacesListQuery(pageNumber);
             var races = await _mediator.Send(query);
             return Ok(races);
         }

@@ -1,4 +1,5 @@
 ﻿using F1.Domain.Common;
+using F1.Domain.Dto;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,7 @@ namespace F1.Application.Contracts.Persistance
 {
     public interface IAsyncRepository<T> where T : EntityBase
     {
-        Task<IReadOnlyList<T>> GetAllAsync();
+        Task<BaseCollection<T>> GetAllAsync(int pageNumber, int pageSize);
         Task<IReadOnlyList<T>> GetAsync(Expression<Func<T, bool>> predicate);
         Task<IReadOnlyList<T>> GetAsync(Expression<Func<T, bool>> predicate = null,
             Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null,

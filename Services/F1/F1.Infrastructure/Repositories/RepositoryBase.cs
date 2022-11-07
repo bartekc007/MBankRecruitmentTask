@@ -1,6 +1,7 @@
 ﻿
 using F1.Application.Contracts.Persistance;
 using F1.Domain.Common;
+using F1.Domain.Dto;
 using F1.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
@@ -17,9 +18,10 @@ namespace F1.Infrastructure.Repositories
             _dbContext = dbContext;
         }
 
-        public async Task<IReadOnlyList<T>> GetAllAsync()
+        public virtual async Task<BaseCollection<T>> GetAllAsync(int pageNumber, int pageSize)
         {
-            return await _dbContext.Set<T>().ToListAsync();
+            // I Can not cast BaseCollection<T> to any specyfic Collection, Not sure how to solve It, so just fore to override this method to get child BaseColletion type.
+            throw new NotImplementedException();
         }
 
         public async Task<IReadOnlyList<T>> GetAsync(Expression<Func<T, bool>> predicate)

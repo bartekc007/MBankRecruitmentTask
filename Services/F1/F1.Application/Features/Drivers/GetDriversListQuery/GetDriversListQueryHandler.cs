@@ -1,4 +1,5 @@
 ﻿using F1.Application.Contracts.Persistance;
+using F1.Domain.Dto;
 using F1.Domain.Entities;
 using MediatR;
 using System;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace F1.Application.Features.Drivers.GetDriversListQuery
 {
-    public class GetDriversListQueryHandler : IRequestHandler<GetDriversListQuery, IEnumerable<Driver>>
+    public class GetDriversListQueryHandler : IRequestHandler<GetDriversListQuery, DriverCollection>
     {
         private readonly IDriversRepository _driversRepository;
 
@@ -18,9 +19,9 @@ namespace F1.Application.Features.Drivers.GetDriversListQuery
             _driversRepository = driversRepository;
         }
 
-        public async Task<IEnumerable<Driver>> Handle(GetDriversListQuery request, CancellationToken cancellationToken)
+        public async Task<DriverCollection> Handle(GetDriversListQuery request, CancellationToken cancellationToken)
         {
-            return await _driversRepository.GetAllAsync();
+            return (DriverCollection) await _driversRepository.GetAllAsync(request.PageNumber,request.PageSize);
         }
     }
 }

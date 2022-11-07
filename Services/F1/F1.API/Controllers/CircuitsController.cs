@@ -1,5 +1,6 @@
 ﻿
 using F1.Application.Features.Circuits.GetCircuitListQuery;
+using F1.Domain.Dto;
 using F1.Domain.Entities;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -20,10 +21,10 @@ namespace F1.API.Controllers
 
         [HttpGet]
         [Route("GetAll")]
-        [ProducesResponseType(typeof(IEnumerable<Circuit>), (int)HttpStatusCode.OK)]
-        public async Task<ActionResult<IEnumerable<Circuit>>> GetAll()
+        [ProducesResponseType(typeof(CircuitCollection), (int)HttpStatusCode.OK)]
+        public async Task<ActionResult<CircuitCollection>> GetAll(int pageNumber)
         {
-            var query = new GetCircuitListQuery();
+            var query = new GetCircuitListQuery(pageNumber);
             var circuits = await _mediator.Send(query);
             return Ok(circuits);
         }
